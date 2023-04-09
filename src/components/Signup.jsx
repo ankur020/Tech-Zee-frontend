@@ -16,9 +16,10 @@ const Signup = () => {
   const onChange = (event) => {
     setcredentials({ ...credentials, [event.target.name]: event.target.value });
   };
+  const host = process.env.REACT_APP_HOST
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch("http://localhost:5000/api/createuser", {
+    const response = await fetch(`${host}/api/createuser`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
