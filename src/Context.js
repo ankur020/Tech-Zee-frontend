@@ -5,7 +5,7 @@ const AllContext = createContext();
 
 
 const ContextProvider = ({ children }) => {
-  const host = 'http://localhost:5000'
+  const host = process.env.REACT_APP_HOST
   const SetALlstateFalse = () => {
     setCreate(false);
     setDasboardArea(false);

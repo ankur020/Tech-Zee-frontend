@@ -10,7 +10,7 @@ const Createclass = () => {
         description: "",
         date: "",
     });
-    const host = 'http://localhost:5000'
+    const host = process.env.REACT_APP_HOST
     let navigate = useNavigate();
 
     const handleOnChange = (e) => {

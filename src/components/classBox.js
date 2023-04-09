@@ -14,7 +14,7 @@ const ClassBox = (props) => {
                     <h1>{props.data.name}</h1>
                 </div>
                 <div >
-                    <p>By Akhand Pratap</p>
+                    <p>{props.data.TeacherName}</p>
                     <p> {props.data.ScheduledTime}</p>
                 </div>
                 <Link to='/startclass'>
