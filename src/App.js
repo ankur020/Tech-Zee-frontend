@@ -9,6 +9,7 @@ import Navbar from './components/Navbar';
 import Dashboard from './Pages/Dashboard';
 import StartClass from './Pages/StartClass';
 import Room from './Pages/Room'
+import Alert from './components/Alert';
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
     <div>
       <Router>
         <Navbar />
+        <Alert />
         <Routes>
           <Route exact path='/signup' element={<Signup />} />
           <Route exact path='/login' element={<Login />} />

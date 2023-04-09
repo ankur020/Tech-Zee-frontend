@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./login.css";
 import { Link, useNavigate } from "react-router-dom";
+import { AllContext } from '../Context'
 const Login = () => {
+  const {  ActivateAlert } = useContext(AllContext);
+
   const [credentials, setcredentials] = useState({
     email: "",
     password: "",
@@ -27,8 +30,10 @@ const Login = () => {
     const json = await response.json();
 
     if (!json.success) {
-      alert("ENTER VALID CREDENTIALS");
+      // alert("ENTER VALID CREDENTIALS");
+      ActivateAlert("danger","Invalid credentials")
     } else {
+      ActivateAlert("success","Successfully Entered")
       localStorage.setItem("userEmail", json.email);
       localStorage.setItem("authToken", json.authToken);
       localStorage.setItem("role", json.role);

@@ -11,6 +11,26 @@ const ContextProvider = ({ children }) => {
     setDasboardArea(false);
     SetSearcArea(false);
   };
+
+  const [ShowAlert, SetAlert] = useState({
+    status: false,
+    message: "",
+    signal: "",
+
+  })
+
+
+  const ActivateAlert = (message, type) => {
+    SetAlert({
+      msg: message,
+      type: type
+    })
+    setTimeout(() => {
+      SetAlert(null);
+    }, 3000);
+  }
+
+
   const [createCLass, setCreate] = useState(false);
   const [DasboardArea, setDasboardArea] = useState(true);
   const [SearcAreaa, SetSearcArea] = useState(false);
@@ -32,7 +52,7 @@ const ContextProvider = ({ children }) => {
   }
   return (
     <AllContext.Provider value={{
-      createCLass, setCreate, SetALlstateFalse, DasboardArea, setDasboardArea, SetSearcArea, GetRepel, host, SearcAreaa, FavArea, setFavArea
+      createCLass, setCreate, SetALlstateFalse, DasboardArea, setDasboardArea, SetSearcArea, GetRepel, host, SearcAreaa, FavArea, setFavArea, ShowAlert, SetAlert, ActivateAlert
     }}
     >
       {children}

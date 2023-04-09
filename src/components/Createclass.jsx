@@ -4,7 +4,7 @@ import './createCLass.css'
 import { AllContext } from "../Context";
 
 const Createclass = () => {
-    const { createCLass } = useContext(AllContext);
+    const { createCLass, ActivateAlert } = useContext(AllContext);
     const [credentials, setcredentials] = useState({
         title: "",
         description: "",
@@ -37,9 +37,11 @@ const Createclass = () => {
         const json = await response.json();
 
         if (!json.success) {
-            alert("ENTER VALID CREDENTIALS");
+            // alert("ENTER VALID CREDENTIALS");
+            ActivateAlert("Invalid credentials", "danger")
         } else {
             console.log(json);
+            ActivateAlert("Scheduled class for you", "success");
             // navigate("/dashboard", {
             //     state: { useremail: localStorage.getItem("userEmail") },
             // });
