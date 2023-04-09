@@ -3,7 +3,7 @@ import "./login.css";
 import { Link, useNavigate } from "react-router-dom";
 import { AllContext } from '../Context'
 const Login = () => {
-  const {  ActivateAlert } = useContext(AllContext);
+  const { ActivateAlert } = useContext(AllContext);
 
   const [credentials, setcredentials] = useState({
     email: "",
@@ -14,9 +14,10 @@ const Login = () => {
   const handleOnChange = (e) => {
     setcredentials({ ...credentials, [e.target.name]: e.target.value });
   };
+  const host = process.env.REACT_APP_HOST
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch("http://localhost:5000/api/loginuser", {
+    const response = await fetch(`${host}/api/loginuser`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -31,9 +32,9 @@ const Login = () => {
 
     if (!json.success) {
       // alert("ENTER VALID CREDENTIALS");
-      ActivateAlert("danger","Invalid credentials")
+      ActivateAlert("danger", "Invalid credentials")
     } else {
-      ActivateAlert("success","Successfully Entered")
+      ActivateAlert("success", "Successfully Entered")
       localStorage.setItem("userEmail", json.email);
       localStorage.setItem("authToken", json.authToken);
       localStorage.setItem("role", json.role);
