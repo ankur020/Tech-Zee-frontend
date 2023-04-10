@@ -17,7 +17,7 @@ Access my site at [TZEE](https://tzee.netlify.app/)
 - run `npm install`
 - Create process.env file
 - ADD REACT_APP_HOST=http://localhost:5000/
-
+- Fork and clone Backend code from [Backend](https://github.com/prernadabi23/TZEE-backend)
 ## Approach
 I adopted the `BEM` naming style for my css class names and ...
 
