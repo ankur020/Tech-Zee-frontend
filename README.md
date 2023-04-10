@@ -1,4 +1,4 @@
-# Project Title
+# TZEE
 The name of the Project
 
 ## Demo link:
