@@ -55,11 +55,11 @@ const Dashboard = () => {
               <DashboardIcon />
               Dashboard
             </button>
-            {
+            {/* {
               localStorage.getItem('role').toLowerCase() === "student" ? <button onClick={() => { SetALlstateFalse(); setFavArea(true) }}>
                 <DashboardIcon />
                 favourite
-              </button> : <></>}
+              </button> : <></>} */}
             {/* <button><MailIcon /> Mail</button>
             <button ><AutoStoriesIcon />Study Materials</button>
             <Link to='/createClass'> */}
