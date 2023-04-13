@@ -6,8 +6,9 @@ const SearcArea = () => {
   const [classList, setClassList] = useState([]);
   const [search, setSearch] = useState("");
   const getAllClasses = async () => {
+    const host = process.env.REACT_APP_HOST
     const responseAllclasses = await fetch(
-      "http://localhost:5000/api/fetchAllClasses"
+      `${host}/api/fetchAllClasses`
     );
     const json = await responseAllclasses.json();
     setClassList(json.classData);
