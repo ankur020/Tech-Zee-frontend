@@ -15,6 +15,8 @@ const Login = () => {
     setcredentials({ ...credentials, [e.target.name]: e.target.value });
   };
   const host = process.env.REACT_APP_HOST
+  
+  // const host = 'http://localhost:5000'
   const handleSubmit = async (e) => {
     e.preventDefault();
     const response = await fetch(`${host}/api/loginuser`, {

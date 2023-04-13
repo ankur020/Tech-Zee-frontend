@@ -10,6 +10,7 @@ const Createclass = () => {
         description: "",
         date: "",
     });
+
     const host = process.env.REACT_APP_HOST
     let navigate = useNavigate();
 
@@ -99,7 +100,7 @@ const Createclass = () => {
                         </label>
                     </div>
                 </div> */}
-
+            <p>*code is autogrenerated</p>
             </form>
         </div>
 

@@ -5,7 +5,7 @@ function EachClass({data}) {
   return (
     <div className='eachClassContainer'>
       <h5>Topic:{data.name}</h5>
-      <p>Code:{data.classCode}</p>
+      <p>Code:{data._id}</p>
       <Link to='/startclass'> <button className='btn bg-primary text-light '>JOIN</button></Link>
      
     </div>

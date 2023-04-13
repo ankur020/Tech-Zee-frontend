@@ -6,7 +6,7 @@ const ClassBox = (props) => {
         <div className='classBox'
             onClick={() => {
                 localStorage.setItem('StartClassID', 'props.data._id')
-                
+
             }}
         >
             <div className="inner">
@@ -15,6 +15,8 @@ const ClassBox = (props) => {
                 </div>
                 <div >
                     <p>{props.data.TeacherName}</p>
+                    <p >
+                        <span className='fw-bold'> Code :</span>  {props.data._id}</p>
                     <p> {props.data.ScheduledTime}</p>
                 </div>
                 <Link to='/startclass'>

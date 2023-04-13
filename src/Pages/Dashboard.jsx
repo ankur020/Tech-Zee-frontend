@@ -4,16 +4,22 @@ import DashboardIcon from "@mui/icons-material/Dashboard";
 import Fav from "./Fav";
 import AutoStoriesIcon from "@mui/icons-material/AutoStories";
 import SearcArea from "./SearcArea";
-
 import LogoutIcon from "@mui/icons-material/Logout";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AllContext } from "../Context";
 import Createclass from "../components/Createclass";
 import DashboardArea from "../components/DashboardArea/DashboardArea";
 import StudentJoinClass from "./StudentJoinClass";
-const Dashboard = () => {
 
-const { setCreate, SetALlstateFalse, SearcAreaa, DasboardArea, setDasboardArea, SetSearcArea, FavArea, setFavArea } = useContext(AllContext);
+const Dashboard = () => {
+  let navigate = useNavigate();
+  const { setCreate, SetALlstateFalse, SearcAreaa, DasboardArea, setDasboardArea, SetSearcArea, FavArea, setFavArea } = useContext(AllContext);
+  const handleLogout = () => {
+    localStorage.removeItem("authToken");
+    localStorage.removeItem("name");
+    localStorage.removeItem("authToken");
+    navigate("/login");
+  };
   return (
     <>
       <div className="dashboard">
@@ -49,10 +55,11 @@ const { setCreate, SetALlstateFalse, SearcAreaa, DasboardArea, setDasboardArea, 
               <DashboardIcon />
               Dashboard
             </button>
-            {/* <button onClick={() => { SetALlstateFalse(); setFavArea(true) }}>
-              <DashboardIcon />
-              favourate
-            </button> */}
+            {
+              localStorage.getItem('role').toLowerCase() === "student" ? <button onClick={() => { SetALlstateFalse(); setFavArea(true) }}>
+                <DashboardIcon />
+                favourite
+              </button> : <></>}
             {/* <button><MailIcon /> Mail</button>
             <button ><AutoStoriesIcon />Study Materials</button>
             <Link to='/createClass'> */}
@@ -82,22 +89,20 @@ const { setCreate, SetALlstateFalse, SearcAreaa, DasboardArea, setDasboardArea, 
 
             {/* </Link> */}
             {/* <button><HelpCenterIcon />Help Centre</button> */}
-            <button>
-              <LogoutIcon />
-              Logout
-            </button>
+            <button onClick={handleLogout}><LogoutIcon />Logout</button>
           </div>
         </div>
         <div className="user-dash">
-          
+
           <Createclass />
           {DasboardArea && <DashboardArea />}
           <>{SearcAreaa && <SearcArea />}</>
           <>
-           
+            {FavArea && <Fav />}
+
           </>
         </div>
-      </div>
+      </div >
     </>
   );
 };

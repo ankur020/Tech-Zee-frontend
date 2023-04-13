@@ -5,11 +5,14 @@ const Alert = () => {
 
     return (
         <div >
-            {ShowAlert && <div className={`alert alert-${ShowAlert.type} alert-dismissible fade show`} role="alert">
-                <strong>
-                    {(ShowAlert.type)?.toUpperCase()}</strong>
-                : {ShowAlert.msg}
-            </div>}
+            {
+                ShowAlert?.status &&
+                <div className={`alert alert-${ShowAlert.type} alert-dismissible fade show`} role="alert">
+                    <strong>
+                        {(ShowAlert.type)?.toUpperCase()}</strong>
+                    : {ShowAlert.msg}
+                </div>
+            }
         </div>
     )
 }

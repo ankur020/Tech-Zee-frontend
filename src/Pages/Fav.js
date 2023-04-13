@@ -3,14 +3,24 @@ import ClassBox from '../components/classBox';
 import { AllContext } from "../Context";
 
 const Fav = () => {
-  const [AllClasses, setAllClasses] = useState();
+
   const [Favlist, setfavList] = useState();
 
-  const { GetRepel } = useContext(AllContext);
+  const { GetUser, GetParticular_Cls } = useContext(AllContext);
+
 
   const getFavList = async () => {
-    const data = await GetRepel();
-    setfavList(data);
+    const data = await GetUser();
+
+    const array_ID = data.favClass
+    let dataN = [];
+
+    array_ID.map(async f => {
+      let n = await GetParticular_Cls(f);
+      dataN.push(n.classData);
+    })
+    console.log(dataN);
+    setfavList(dataN);
   }
 
   useEffect(() => {
@@ -22,9 +32,10 @@ const Fav = () => {
 
 
       {
-        (AllClasses) ?
-          (AllClasses.map((note) => {
+        (Favlist) ?
+          (Favlist.map((note) => {
             return <ClassBox key={note._id} data={note} />
+
           }))
           :
           (<div>
